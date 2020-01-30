@@ -1,7 +1,7 @@
 <template>
   <div class="uk-padding uk-height-expand">
     <dfFormulario @valor="mostraItem($event)" />
-    <dfLista />
+    <dfLista :dfData="tarefas" />
   </div>
 </template>
 
@@ -13,9 +13,19 @@ export default {
     dfFormulario,
     dfLista
   },
+  data() {
+    return {
+      tarefas: []
+    };
+  },
   methods: {
     mostraItem(s) {
-      console.log(s);
+      var idItem = this.tarefas.length;
+      return this.tarefas.push({
+        id: idItem,
+        tarefa: s,
+        status: false
+      });
     }
   }
 };

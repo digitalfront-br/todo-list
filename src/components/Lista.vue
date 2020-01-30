@@ -6,7 +6,7 @@
         <div class="uk-text-bold">status</div>
       </div>
     </li>
-    <li v-for="item in lista" :key="item.id">
+    <li v-for="item in dfData" :key="item.id">
       <div class="uk-flex  uk-flex-between">
         <div>{{ item.tarefa }}</div>
         <div>
@@ -19,6 +19,11 @@
 
 <script>
 export default {
+  props: {
+    dfData: {
+      type: Array
+    }
+  },
   data(){
     return {
       lista: [
